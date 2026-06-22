@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Una sfida di conversazione in italiano di tre minuti per studenti principianti."
+    />
+    <title>Parla con me — Sfida di conversazione in italiano</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#" aria-label="Pagina iniziale di Parla con me">
+          <span class="brand-mark" aria-hidden="true">P!</span>
+          <span>Parla con me</span>
+        </a>
+        <span class="course-pill">ITALIANO PRINCIPIANTI · A1</span>
+      </header>
+
+      <main>
+        <!-- Welcome screen -->
+        <section id="welcomeScreen" class="screen welcome-screen active" aria-labelledby="welcomeTitle">
+          <div class="welcome-copy">
+            <p class="eyebrow">Sfida di conversazione di 3 minuti</p>
+            <h1 id="welcomeTitle">
+              Il tuo italiano.<br />
+              <span>La tua voce.</span>
+            </h1>
+            <p class="intro">
+              Conosci <strong>Giulia</strong>, la tua simpatica compagna di conversazione.
+              Ti farà alcune domande semplici, ascolterà e risponderà. Puoi fare anche tu
+              una domanda semplice: non serve essere perfetti.
+            </p>
+
+            <div class="task-card">
+              <span class="task-number" aria-hidden="true">01</span>
+              <div>
+                <h2>Ecco l’attività</h2>
+                <p>
+                  Risponderai a domande semplici in italiano. Parla chiaramente e prova
+                  a usare frasi complete. Puoi aggiungere una domanda come “E tu?” e
+                  Giulia risponderà. Il video e l’audio saranno registrati durante l’attività.
+                </p>
+              </div>
+            </div>
+
+            <div class="welcome-actions">
+              <button id="startButton" class="button button-primary">
+                Inizia la sfida
+                <span aria-hidden="true">→</span>
+              </button>
+              <p class="privacy-note">
+                <span aria-hidden="true">●</span>
+                La registrazione rimane su questo dispositivo
+              </p>
+            </div>
+            <p id="permissionError" class="error-message" role="alert" hidden></p>
+          </div>
+
+          <div class="welcome-art" aria-label="Illustrazione di Giulia, la tua compagna di conversazione">
+            <div class="sun-shape" aria-hidden="true"></div>
+            <div class="speech-sticker" aria-hidden="true">
+              <span>Ciao!</span>
+              <small>Parliamo?</small>
+            </div>
+            <div class="avatar avatar-large" aria-hidden="true">
+              <div class="avatar-hair-back"></div>
+              <div class="avatar-neck"></div>
+              <div class="avatar-body"></div>
+              <div class="avatar-ear avatar-ear-left"></div>
+              <div class="avatar-ear avatar-ear-right"></div>
+              <div class="avatar-face">
+                <div class="avatar-hair-front"></div>
+                <div class="avatar-brow brow-left"></div>
+                <div class="avatar-brow brow-right"></div>
+                <div class="avatar-eye eye-left"></div>
+                <div class="avatar-eye eye-right"></div>
+                <div class="avatar-nose"></div>
+                <div class="avatar-mouth"></div>
+                <div class="avatar-cheek cheek-left"></div>
+                <div class="avatar-cheek cheek-right"></div>
+              </div>
+              <div class="earring earring-left"></div>
+              <div class="earring earring-right"></div>
+            </div>
+            <div class="name-tag">
+              <strong>Giulia</strong>
+              <span>la tua compagna di conversazione</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Three-minute activity screen -->
+        <section id="gameScreen" class="screen game-screen" aria-labelledby="questionText">
+          <div class="game-topbar">
+            <div>
+              <p class="eyebrow">Sfida di conversazione</p>
+              <p id="questionNumber" class="question-number">Domanda 1</p>
+            </div>
+            <div class="session-controls">
+              <div class="timer-block" aria-label="Tempo rimanente">
+                <span class="live-dot" aria-hidden="true"></span>
+                <span id="recordingState">REC</span>
+              <strong id="timer">03:00</strong>
+              </div>
+              <button id="pauseButton" class="button control-button" type="button">
+                <span aria-hidden="true">Ⅱ</span>
+                Pausa
+              </button>
+              <button id="stopButton" class="button control-button stop-button" type="button">
+                <span aria-hidden="true">■</span>
+                Termina
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-label="Avanzamento della sfida"
+            aria-valuemin="0"
+            aria-valuemax="180"
+            aria-valuenow="0"
+          >
+            <div id="progressBar" class="progress-fill"></div>
+          </div>
+
+          <div class="game-layout">
+            <div class="speaker-panel">
+              <div class="speaker-label">Giulia chiede…</div>
+              <div class="speaker-scene">
+                <div class="mini-sun" aria-hidden="true"></div>
+                <div class="avatar avatar-game" aria-hidden="true">
+                  <div class="avatar-hair-back"></div>
+                  <div class="avatar-neck"></div>
+                  <div class="avatar-body"></div>
+                  <div class="avatar-ear avatar-ear-left"></div>
+                  <div class="avatar-ear avatar-ear-right"></div>
+                  <div class="avatar-face">
+                    <div class="avatar-hair-front"></div>
+                    <div class="avatar-brow brow-left"></div>
+                    <div class="avatar-brow brow-right"></div>
+                    <div class="avatar-eye eye-left"></div>
+                    <div class="avatar-eye eye-right"></div>
+                    <div class="avatar-nose"></div>
+                    <div class="avatar-mouth talking-mouth"></div>
+                    <div class="avatar-cheek cheek-left"></div>
+                    <div class="avatar-cheek cheek-right"></div>
+                  </div>
+                  <div class="earring earring-left"></div>
+                  <div class="earring earring-right"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="question-panel">
+              <div id="encouragement" class="encouragement" aria-live="polite"></div>
+              <p class="answer-prompt">Ora tocca a te</p>
+              <h2 id="questionText">Ciao, come stai?</h2>
+              <p id="translationText" class="translation">Ciao, come stai?</p>
+              <div id="listeningStatus" class="listening-status" aria-live="polite">
+                <span aria-hidden="true">●</span>
+                Giulia ascolterà e risponderà dopo la domanda.
+              </div>
+              <p id="heardText" class="heard-text" aria-live="polite"></p>
+
+              <div class="answer-time">
+                <span>Tempo per rispondere</span>
+                <div class="answer-dots" aria-hidden="true">
+                  <i></i><i></i><i></i><i></i><i></i>
+                </div>
+                <strong id="answerTimer">11s</strong>
+              </div>
+
+              <div class="question-actions">
+                <button id="repeatButton" class="button button-secondary">
+                  <span aria-hidden="true">↻</span>
+                  Ripeti la domanda
+                </button>
+                <button id="skipButton" class="button button-ghost">
+                  Salta
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+
+            <aside class="camera-panel">
+              <div class="camera-heading">
+                <span>La tua risposta</span>
+                <span class="recording-badge"><i></i> Registrazione</span>
+              </div>
+              <div class="video-frame">
+                <video id="cameraPreview" autoplay muted playsinline></video>
+                <div class="video-corner corner-a"></div>
+                <div class="video-corner corner-b"></div>
+                <div class="video-corner corner-c"></div>
+                <div class="video-corner corner-d"></div>
+              </div>
+              <p class="camera-tip">
+                <span aria-hidden="true">✦</span>
+                Parla chiaramente. Usa frasi complete!
+              </p>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Completion, playback and reflection screen -->
+        <section id="completeScreen" class="screen complete-screen" aria-labelledby="completeTitle">
+          <div class="complete-heading">
+            <div class="celebration-mark" aria-hidden="true">✓</div>
+            <p class="eyebrow">Sfida completata</p>
+            <h1 id="completeTitle">Complimenti!</h1>
+            <p id="completeMessage">Hai completato la sfida di conversazione.</p>
+          </div>
+
+          <div class="results-layout">
+            <div class="playback-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">La tua registrazione</p>
+                  <h2>Riascolta</h2>
+                </div>
+                <span id="recordedDuration">03:00</span>
+              </div>
+              <video id="recordedVideo" controls playsinline></video>
+              <button id="downloadButton" class="button button-primary button-full">
+                Scarica la registrazione
+                <span aria-hidden="true">↓</span>
+              </button>
+            </div>
+
+            <form class="reflection-card" id="reflectionForm">
+              <p class="eyebrow">Breve riflessione</p>
+              <h2>Prima di finire…</h2>
+              <label for="easiestQuestion">Quale domanda era più facile?</label>
+              <textarea id="easiestQuestion" rows="2" placeholder="Per esempio: Come ti chiami?"></textarea>
+
+              <label for="difficultQuestion">Quale domanda era più difficile?</label>
+              <textarea id="difficultQuestion" rows="2" placeholder="Scrivi qui la tua risposta…"></textarea>
+
+              <label for="newPhrase">Quale nuova frase italiana hai usato?</label>
+              <textarea id="newPhrase" rows="2" placeholder="Per esempio: Nel tempo libero…"></textarea>
+
+              <p class="reflection-note">
+                <span aria-hidden="true">✦</span>
+                Le tue riflessioni rimangono private in questo browser.
+              </p>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
